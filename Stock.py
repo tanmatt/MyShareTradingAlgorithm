@@ -51,11 +51,16 @@ class Stocks:
             resp = resp.read()
             json_resp = json.loads(resp[39: -1])
             try:
-                symbol_list.append(json_resp['ResultSet']['Result'][1]['symbol'])
+                symbol = json_resp['ResultSet']['Result'][0]['symbol']
+                dot_pos = symbol.find('.')
+                if dot_pos != -1:
+                    symbol = symbol[:dot_pos]
+                symbol_list.append(symbol)
             except Exception, ex:
                 print 'Symbol: NA'
                 if DEBUG:
                     print str(ex)
+
 
         if DEBUG:
             print '\n%d symbol(s) found' %len(symbol_list)
@@ -82,10 +87,8 @@ class Stocks:
             wget.download(QUANDL_API + symbol + QUANDL_FORMAT)
             count += 1
             if DEBUG:
-                print ''
+                print '%d csv downloaded' %count
 
-        if DEBUG:
-            print '%d csv downloaded'%count
     
 if __name__ == "__main__":
     stock = Stocks()
