@@ -1,7 +1,10 @@
-# StockDropPrediction
-Using machine learning approach, cluster different stocks by months when they are expected to be the lowest for 2015. 
+## MyShareTradingAlgorithm
+#### Previuos name -> StockDropPrediction
+-------
 
-Steps:
-1. List out Organization in txt file
-2. Read from python script and download csv files for each organization
-3. download weka and select the best possible machine learning algorithm 
+##### Planned steps:
+1. Decide algorithm
+2. Design / Test
+3. Decide storage media
+4. Decide visualization tool
+5. Implement
